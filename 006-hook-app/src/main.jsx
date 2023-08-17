@@ -1,8 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
+
+/* BrowserRouter */
+import { RouterProvider } from "react-router-dom";
+import { router } from "./09-useContext/routes/";
 //import { HooksApp } from './HooksApp';
 //import { CounterApp } from './01-useState/CounterApp';
-import './index.css';
+import "./index.css";
 
 //import './08-useReducer/intro-reducer';
 
@@ -16,11 +20,12 @@ import './index.css';
 //import { MemoHook } from './06-memos/MemoHook';
 //import { CallbackHook } from './06-memos/CallbackHook';
 //import { Padre } from './07-tarea-memo/Padre';
-import { ToDoApp } from './08-useReducer/ToDoApp';
+//import { ToDoApp } from './08-useReducer/ToDoApp';
+//import { MainApp } from "./09-useContext/MainApp";
 
-
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <ToDoApp />
-  </React.StrictMode>,
-)
+    {/* <MainApp /> */}
+    <RouterProvider router={router}/> 
+  </React.StrictMode>
+);
