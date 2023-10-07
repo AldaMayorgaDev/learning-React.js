@@ -3,6 +3,8 @@ import { DCPage, HeroPage, MarvelPage, SearchPage } from '../modules/heroes/page
 import { LoginPage } from "../modules/auth/pages";
 import { RootHeroesApp } from "../RootHeroesApp";
 import { HeroesRoutes } from '../modules/heroes/routes/';
+import { PrivateRoute } from "./PrivateRoute";
+import { PublicRoute } from "./PublicRoute";
 
 //Definiendo rutas
 export const AppRouter = createBrowserRouter([
@@ -12,7 +14,7 @@ export const AppRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <HeroesRoutes />,
+        element: <PrivateRoute>  <HeroesRoutes /> </PrivateRoute>,
         children: [
           {
             path: "dc",
@@ -35,7 +37,7 @@ export const AppRouter = createBrowserRouter([
       },
       {
         path: "/login",
-        element: <LoginPage />,
+        element: <PublicRoute> <LoginPage /> </PublicRoute>,
         /*         children: [
                   {
                     path: "/*",

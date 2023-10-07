@@ -23,7 +23,7 @@ export const HeroPage = () => {
     <div className="row mt-5">
 
       <div className="col-4">
-        <img src={`/assets/heroes/${id}.jpg`}
+        <img src={`/heroes/${id}.jpg`}
           alt={hero.superhero}
           title={hero.superhero}
           className="img-thumbnail animate__animated animate__fadeInLeft" />
@@ -33,7 +33,7 @@ export const HeroPage = () => {
         <ul className="list-group list-group-flush">
           <li className="list-group-item"> <b>Alter ego: </b>{hero.alter_ego}</li>
           <li className="list-group-item"> <b>Publisher: </b>{hero.publisher}</li>
-          <li className="list-group-item"> <b>Pfirst Appearance: </b>{hero.first_appearance}</li>
+          <li className="list-group-item"> <b>First Appearance: </b>{hero.first_appearance}</li>
         </ul>
 
         <h3 className="mt-3">Characters</h3>
