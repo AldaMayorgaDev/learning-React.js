@@ -1,17 +1,23 @@
+// ** React
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { RouterProvider } from 'react-router-dom';
-import { AppRouter } from './router/AppRouter.jsx';
+// ** General Styles
 import './styles.css';
+// ** Themes
 import { AppTheme } from './theme/';
-
+// ** Redux
+import { Provider } from 'react-redux';
+import { store } from './store';
+// ** Main Component
+import { JournalApp } from './JournalApp.jsx';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <AppTheme>
-      <RouterProvider router={AppRouter} />
-    </AppTheme>
-
+    <Provider store={store}>
+      <AppTheme>
+        <JournalApp />
+      </AppTheme>
+    </Provider>
   </React.StrictMode>,
 )

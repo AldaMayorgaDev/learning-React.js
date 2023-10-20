@@ -1,7 +1,12 @@
-import { TurnedInNot } from "@mui/icons-material"
-import { Box, Drawer, Typography, Toolbar, Divider, List, ListItem, ListItemButton, ListItemIcon, Grid, ListItemText } from "@mui/material"
-
+// ** Redux
+import { useSelector } from "react-redux";
+// ** Components Material
+import { Box, Drawer, Typography, Toolbar, Divider, List, } from "@mui/material";
+// ** Custom Components
+import { SideBarItem } from "../index";
 export const SideBar = ({ drawerWidth = 240 }) => {
+    const { notes } = useSelector(state => state.journal);
+    const { displayName } = useSelector(state => state.auth);
     return (
         <Box
             component={'nav'}
@@ -27,32 +32,16 @@ export const SideBar = ({ drawerWidth = 240 }) => {
             >
                 <Toolbar>
                     <Typography variant="h6" noWrap component='div'>
-                        Aldahir Mayorga
+                        {displayName}
                     </Typography>
                 </Toolbar>
                 <Divider />
 
                 <List>
                     {
-                        ['Enero', 'Febero', 'Marzo', 'Abril'].map((mes) => {
-                            return (
-                                <ListItem key={mes} disablePadding>
-                                    <ListItemButton>
-                                        <ListItemIcon>
-                                            <TurnedInNot />
-                                        </ListItemIcon>
-
-
-                                        <Grid container>
-                                            <ListItemText primary={mes} />
-                                            <ListItemText secondary={'Duis ipsum occaecat eiusmod Lorem sint esse dolore.'} />
-
-
-                                        </Grid>
-                                    </ListItemButton>
-                                </ListItem>
-                            )
-                        })
+                        notes.map((note) => (
+                            <SideBarItem note={note} key={note.id} imagesUrls={note.imagesUrls} />
+                        ))
                     }
                 </List>
 
